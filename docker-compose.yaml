@@ -1,0 +1,15 @@
+version: "3.1"
+
+services: 
+  
+  rabbitmq:
+    container_name: MasstransitHangfireLogs-rabbitmq
+    image: masstransit/rabbitmq:latest
+    restart: always
+    hostname: rabbitmq
+    ports:
+      - 15672:15672
+      - 5672:5672
+    volumes:
+      - ./deploy/RabbitMQ/rabbitmq-isolated.conf:/etc/rabbitmq/rabbitmq.config
+      - "TZ=America/Sao_Paulo"
